@@ -2,18 +2,51 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {# Run `composer require symfony/webpack-encore-bundle`
-           and uncomment the following Encore helpers to start using Symfony UX #}
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+        <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+        <title>{% block title %}{% endblock %}</title>
+        <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/fullcalendar.min.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/dataTables.bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/select2.min.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-datetimepicker.min.css">
+        <link rel="stylesheet" type="text/css" href="assets/plugins/morris/morris.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/plus.css">
+        <!--[if lt IE 9]>
+            <script src="assets/js/html5shiv.min.js"></script>
+            <script src="assets/js/respond.min.js"></script>
+        <![endif]-->
         {% block stylesheets %}
-            {#{{ encore_entry_link_tags('app') }}#}
+            
         {% endblock %}
 
-        {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
-        {% endblock %}
+        
     </head>
     <body>
+    <div class="main-wrapper">
         {% block body %}{% endblock %}
+        {% include 'Admin/layout/header.html.twig %}
+        {% include 'Admin/layout/sidebar.html.twig %}
+    </div>
+    
+        <div class="sidebar-overlay" data-reff=""></div>
+        <script type="text/javascript" src="assets/js/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="assets/js/jquery.slimscroll.js"></script>
+        <script type="text/javascript" src="assets/js/select2.min.js"></script>
+        <script type="text/javascript" src="assets/js/moment.min.js"></script>
+        <script type="text/javascript" src="assets/js/bootstrap-datetimepicker.min.js"></script>
+        <script type="text/javascript" src="assets/plugins/morris/morris.min.js"></script>
+        <script type="text/javascript" src="assets/plugins/raphael/raphael-min.js"></script>
+        <script type="text/javascript" src="assets/js/app.js"></script>
+
+        {% block javascripts %}
+            
+        {% endblock %}
+    
     </body>
 </html>
