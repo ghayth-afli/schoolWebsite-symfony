@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Admin;
-use App\Form\UserType;
+use App\Form\AdminType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -25,7 +25,7 @@ class RegistrationController extends AbstractController
     {
         $admin = new Admin();
 
-        $form = $this->createForm(UserType::class, $admin);
+        $form = $this->createForm(AdminType::class, $admin);
 
         $form->handleRequest($request);
 
