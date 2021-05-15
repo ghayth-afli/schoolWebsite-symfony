@@ -29,8 +29,10 @@
     <body>
     <div class="main-wrapper">
         {% block body %}{% endblock %}
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
         {% include 'Admin/layout/header.html.twig' %}
         {% include 'Admin/layout/sidebar.html.twig' %}
+        {% endif %}  
     </div>
     
         <div class="sidebar-overlay" data-reff=""></div>
