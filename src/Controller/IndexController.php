@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class IndexController extends AbstractController
 {
-    #[Route('/index', name: 'index')]
+    #[Route('/', name: 'index')]
     public function index(): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
