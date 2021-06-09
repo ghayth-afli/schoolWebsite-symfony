@@ -9,17 +9,9 @@ use Symfony\Component\Routing\Annotation\Route;
 class ProfController extends AbstractController
 {
     #[Route('/prof', name: 'prof')]
-    public function displayProf(): Response
+    public function index(): Response
     {
         return $this->render('Admin/les profes.html.twig', [
-            'controller_name' => 'ProfController',
-        ]);
-    }
-
-    #[Route('/prof/addProf', name: 'addProf')]
-    public function addProf(): Response
-    {
-        return $this->render('Admin/ajoutProfe.html.twig', [
             'controller_name' => 'ProfController',
         ]);
     }

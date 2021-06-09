@@ -9,18 +9,9 @@ use Symfony\Component\Routing\Annotation\Route;
 class MoyenneController extends AbstractController
 {
     #[Route('/moyenne', name: 'moyenne')]
-    public function displayMoyenne(): Response
+    public function index(): Response
     {
         return $this->render('Admin/les moyennes.html.twig', [
-            'controller_name' => 'MoyenneController',
-        ]);
-    }
-
-
-    #[Route('/moyenne/addMoyenne', name: 'addMoyenne')]
-    public function addMoyenne(): Response
-    {
-        return $this->render('Admin/ajoutMoyenne.html.twig', [
             'controller_name' => 'MoyenneController',
         ]);
     }
