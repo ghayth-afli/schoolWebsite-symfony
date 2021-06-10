@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ProfRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -71,6 +73,21 @@ class Prof
      * @ORM\Column(type="string", length=255)
      */
     private $Matier;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Classe::class, mappedBy="Profs")
+     */
+    private $Classe;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Matiere::class, inversedBy="profs")
+     */
+    private $Matiere;
+
+    public function __construct()
+    {
+        $this->Classe = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -205,6 +222,48 @@ class Prof
     public function setMatier(string $Matier): self
     {
         $this->Matier = $Matier;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Classe[]
+     */
+    public function getClasse(): Collection
+    {
+        return $this->Classe;
+    }
+
+    public function addClasse(Classe $classe): self
+    {
+        if (!$this->Classe->contains($classe)) {
+            $this->Classe[] = $classe;
+            $classe->setProfs($this);
+        }
+
+        return $this;
+    }
+
+    public function removeClasse(Classe $classe): self
+    {
+        if ($this->Classe->removeElement($classe)) {
+            // set the owning side to null (unless already changed)
+            if ($classe->getProfs() === $this) {
+                $classe->setProfs(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getMatiere(): ?Matiere
+    {
+        return $this->Matiere;
+    }
+
+    public function setMatiere(?Matiere $Matiere): self
+    {
+        $this->Matiere = $Matiere;
 
         return $this;
     }
